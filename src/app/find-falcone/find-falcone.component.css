@@ -1,0 +1,26 @@
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 960px;
+    padding: 0 20px;
+    position: relative;
+    width: 100%;
+}
+
+.center{
+    text-align: center;
+}
+
+.card {
+    background: #FFF;
+    -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+    padding: 18px;
+    width: 100%;
+  }
+
+  .mar3{
+      margin-top: 3%;
+  }
+  

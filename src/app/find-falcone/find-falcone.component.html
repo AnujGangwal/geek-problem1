@@ -1,0 +1,76 @@
+<div class="container card mar3">
+  <h4 class="center">Finding Falcone!</h4>
+
+  <h5 class="center">Select Planet you want to search in:</h5>
+  <!-- <form name="findingDetails" #findingDetails="ngForm"> -->
+  <div class="row">
+  <div class="col-lg-3">
+    <label>Destination 1</label>
+  <input type="text"  list="planets" name="planetOne" [(ngModel)]="firstPlanet" (change)="planetChange(firstPlanet)" >
+    <datalist id="planets">
+      <option *ngFor="let planet of planetsName" [value]="planet.name" >{{planet.name}}</option>
+    </datalist>
+  </div>
+
+  <div class="col-lg-3" *ngIf="firstVehicle != '' ">
+      <label>Destination 2</label>
+      <input type="text"  list="planets" name="planetTwo" [(ngModel)]="secondPlanet" (change)="planetChange(secondPlanet)">
+        <datalist id="planets">
+          <option *ngFor="let planet of planetsName" [value]="planet.name" >{{planet.name}}</option>
+        </datalist>
+  </div>
+
+      <div class="col-lg-3" *ngIf="secondVehicle != ''">
+          <label>Destination 3</label>
+          <input type="text"  list="planets" name="planetThree" [(ngModel)]="thirdPlanet" (change)="planetChange(thirdPlanet)">
+            <datalist id="planets">
+              <option *ngFor="let planet of planetsName" [value]="planet.name" >{{planet.name}}</option>
+            </datalist>
+        </div>
+
+        <div class="col-lg-3" *ngIf="thirdVehicle != ''">
+            <label>Destination 4</label>
+            <input type="text"  list="planets" name="planetfour" [(ngModel)]="forthPlanet" (change)="planetChange(forthPlanet)">
+              <datalist id="planets">
+                <option *ngFor="let planet of planetsName" [value]="planet.name" >{{planet.name}}</option>
+              </datalist>
+          </div>
+
+        </div>
+
+      <div class="row">
+        <div class="col-lg-3" *ngIf="firstPlanet">
+          <div *ngFor="let vehicle of vehicleName">
+              <input type="radio"  name="firstV" [(ngModel)]="firstVehicle" (change)="calculate('firstV')" [disabled]="secondVehicle == vehicle.name || thirdVehicle == vehicle.name || forthVehicle == vehicle.name" [value]="vehicle.name">{{vehicle.name}}<br>
+          </div>
+        </div>
+        <div class="col-lg-3" *ngIf="secondPlanet">
+            <div *ngFor="let vehicle of vehicleName">
+                <input type="radio"  name="secondV" [(ngModel)]="secondVehicle" (change)="calculate('secondV')"  [disabled]="firstVehicle == vehicle.name || thirdVehicle == vehicle.name || forthVehicle == vehicle.name" [value]="vehicle.name">{{vehicle.name}}<br>
+            </div>
+          </div>
+          <div class="col-lg-3" *ngIf="thirdPlanet">
+              <div *ngFor="let vehicle of vehicleName">
+                  <input type="radio"  name="thirdV" [(ngModel)]="thirdVehicle" (change)="calculate('thirdV')"  [disabled]="firstVehicle == vehicle.name || secondVehicle == vehicle.name || forthVehicle == vehicle.name" [value]="vehicle.name">{{vehicle.name}}<br>
+              </div>
+            </div>
+            <div class="col-lg-3" *ngIf="forthPlanet">
+                <div *ngFor="let vehicle of vehicleName">
+                    <input type="radio"  name="forthV" [(ngModel)]="forthVehicle" (change)="calculate('forthV')"  [disabled]="firstVehicle == vehicle.name || thirdVehicle == vehicle.name || secondVehicle == vehicle.name" [value]="vehicle.name">{{vehicle.name}}<br>
+                </div>
+              </div>
+      </div>
+      <hr>
+      <div class="center">
+        Time Taken : {{timeTaken}}
+      </div>
+      <div class="row">
+        <div class="center">
+          <button (click)="find()" >{{buttonText}}</button>
+        </div>
+        <div *ngIf="showError">
+          <p>{{errorMsg}}</p>
+        </div>
+      </div>
+      <!-- </form> -->
+</div>
